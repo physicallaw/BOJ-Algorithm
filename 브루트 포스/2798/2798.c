@@ -1,42 +1,25 @@
 #include <stdio.h>
 #define MAX 300000
 
-void sort(int *, int *);
-
 int main()
 {
-   int n, m, i;
+   int n, m, i, j, k, temp;
+   int answer = 0;
    int arr[MAX];
    scanf("%d %d", &n, &m);
    for (i = 0; i < n; ++i)
       scanf("%d", arr + i);
 
-   sort(arr, arr + n);
-
    for (i = 0; i < n - 2; ++i)
-      if (arr[i] + arr[i + 1] + arr[i + 2] > m)
-      {
-         --i;
-         break;
-      }
-   printf("%d", arr[i] + arr[i + 1] + arr[i + 2]);
+      for (j = i + 1; j < n - 1; ++j)
+         for (k = j + 1; k < n; ++k)
+         {
+            temp = arr[i] + arr[j] + arr[k];
+            if (answer < temp && temp <= m)
+               answer = temp;
+         }
+
+   printf("%d", answer);
 
    return 0;
-}
-
-void sort(int *begin, int *end)
-{
-   int *it;
-   int i, temp;
-   for (it = begin + 1; it != end; ++it)
-   {
-      i = it - begin;
-      while (i > 0 && *(begin + i - 1) > *(begin + i))
-      {
-         temp = *(begin + i);
-         *(begin + i) = *(begin + i - 1);
-         *(begin + i - 1) = temp;
-         --i;
-      }
-   }
 }
