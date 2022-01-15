@@ -1,38 +1,26 @@
 import java.util.Scanner;
 
 public class Main {
-	public static int dist(int x1, int y1, int x2, int y2) {
-		return (x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2);
-	}
-
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 
 		int n = sc.nextInt();
-		int answer;
-		
+		int m = sc.nextInt();
+		int answer = 0;
+		int[] arr = new int[n];
 		for (int i = 0; i < n; ++i)
-		{
-			int x1 = sc.nextInt();
-			int y1 = sc.nextInt();
-			int r1 = sc.nextInt();
-			int x2 = sc.nextInt();
-			int y2 = sc.nextInt();
-			int r2 = sc.nextInt();
-			int d = dist(x1, y1, x2, y2);
-
-			if (x1 == x2 && y1 == y2 && r1 == r2)
-				answer = -1;
-			else if (d == (r1 + r2) * (r1 + r2) || d == (r1 - r2) * (r1 - r2))
-			   answer = 1;
-			else if ((r1 - r2) * (r1 - r2) < d && d < (r1 + r2) * (r1 + r2))
-				answer = 2;
-			else
-         	answer = 0;
-
-			System.out.println(answer);
-		}
+			arr[i] = sc.nextInt();
 		
+		for (int i = 0; i < n - 2; ++i)
+      	for (int j = i + 1; j < n - 1; ++j)
+      	   for (int k = j + 1; k < n; ++k)
+         	{
+            	int temp = arr[i] + arr[j] + arr[k];
+            	if (answer < temp && temp <= m)
+	               answer = temp;
+         	}
+		
+		System.out.print(answer);
 		sc.close();
 	}
 }
