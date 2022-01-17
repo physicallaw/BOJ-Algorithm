@@ -1,7 +1,11 @@
 #include <stdio.h>
+#include <stdlib.h>
 #define MAX 1000
 
-void sort(int*, int*);
+int compare (const void * a, const void * b)
+{
+   return *(int*)a - *(int*)b;
+}
 
 int main()
 {
@@ -11,26 +15,9 @@ int main()
    for (i = 0; i < n; ++i)
       scanf("%d", arr + i);
    
-   sort(arr, arr + n);
+   qsort(arr, n, sizeof(int), compare);
    for (i = 0; i < n; ++i)
       printf("%d\n", arr[i]);
 
    return 0;
-}
-
-void sort(int *begin, int *end)
-{
-   int *it;
-   int i, temp;
-   for (it = begin + 1; it != end; ++it)
-   {
-      i = it - begin;
-      while (i > 0 && *(begin + i - 1) > *(begin + i))
-      {
-         temp = *(begin + i);
-         *(begin + i) = *(begin + i - 1);
-         *(begin + i - 1) = temp;
-         --i;
-      }
-   }
 }
