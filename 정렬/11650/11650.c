@@ -4,7 +4,7 @@
 
 int compare (const void * a, const void * b)
 {
-    if (((int*)a)[0] == ((int*)b)[0])
+   if (((int*)a)[0] == ((int*)b)[0])
 		return ((int*)a)[1] - ((int*)b)[1];
 	else
 		return ((int*)a)[0] - ((int*)b)[0];
