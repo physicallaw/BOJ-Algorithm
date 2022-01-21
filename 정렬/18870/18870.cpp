@@ -5,7 +5,6 @@
 #include <vector>
 using namespace std;
 
-
 int main()
 {
    int n, l = 0, temp = -2000000000;
