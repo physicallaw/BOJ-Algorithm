@@ -15,14 +15,9 @@ int main()
 
 int gcd(int a, int b)
 {
-   if (a < b) return gcd(b, a);
-   if (a == b) return a;
-   return gcd(a - b, b);
+   return b ? gcd(b, a % b) : a;
 }
 int lcm(int a, int b)
 {
-   int n = a;
-   while (n % b)
-      n += a;
-   return n;
+   return a * b / gcd(a, b);
 }

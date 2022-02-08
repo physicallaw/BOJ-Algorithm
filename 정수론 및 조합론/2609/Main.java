@@ -2,18 +2,11 @@ import java.util.Scanner;
 
 public class Main {
 	public static int gcd(int a, int b) {
-		if (a < b)
-			return gcd(b, a);
-		if (a == b)
-			return a;
-		return gcd(a - b, b);
+		return b != 0 ? gcd(b, a % b) : a;
 	}
 
 	public static int lcm(int a, int b) {
-		int n = a;
-		while (n % b != 0)
-			n += a;
-		return n;
+		return a * b / gcd(a, b);
 	}
 
 	public static void main(String[] args) {
