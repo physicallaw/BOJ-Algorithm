@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <math.h>
 #define MAX 100
 
 int gcd(int, int);
