@@ -13,7 +13,7 @@ int main()
       n /= 2;
    }
    for (j = 0; j < MAX; ++j)
-      answer += arr[j] * pow(2, j + 1);
+      if (arr[j]) answer += (int) pow(2, j + 1);
    printf("%d", (answer ? answer : (int) pow(2, i)));
 
    return 0;
