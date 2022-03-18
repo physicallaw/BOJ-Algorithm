@@ -2,6 +2,12 @@
 # Created by https://www.toptal.com/developers/gitignore/api/visualstudiocode,c,c++,python,java
 # Edit at https://www.toptal.com/developers/gitignore?templates=visualstudiocode,c,c++,python,java
 
+# template
+template.c
+template.cpp
+template.py
+template.java
+
 ### C ###
 # Prerequisites
 *.d
