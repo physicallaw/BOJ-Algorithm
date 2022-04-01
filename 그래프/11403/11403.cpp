@@ -10,14 +10,12 @@ int main()
     vector<vector<int>> v(n, vector<int>(n));
     for (int i = 0; i < n; ++i)
         for (int j = 0; j < n; ++j)
-            cin >> v[i][j];
-    for (int l = 0; l < 2; ++l)
+            cin >> v[i][j];    
+    for (int k = 0; k < n; ++k)
         for (int i = 0; i < n; ++i)
             for (int j = 0; j < n; ++j)
-                if (!v[i][j])
-                    for (int k = 0; k < n; ++k)
-                        if (v[i][k] and v[k][j])
-                            v[i][j] = 1;
+                if (v[i][k] and v[k][j])
+                    v[i][j] = 1;
     for (int i = 0; i < n; ++i)
     {
         for (int j = 0; j < n; ++j)
